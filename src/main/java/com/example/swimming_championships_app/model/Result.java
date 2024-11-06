@@ -15,18 +15,18 @@ public class Result implements Serializable {
     @JoinColumn(name = "id_request")
     private Request request;
     @Column(name = "result_time")
-    private Integer resulTimeInt;
+    private Integer timeInt;
     @Transient
     private Time resultTime;
 
     public Result() {
     }
 
-    public Result(Integer id, Request request, Integer resulTimeInt) {
+    public Result(Integer id, Request request, Integer timeInt, Time resultTime) {
         this.id = id;
         this.request = request;
-        this.resulTimeInt = resulTimeInt;
-        this.resultTime = new Time(resulTimeInt);
+        this.timeInt = timeInt;
+        this.resultTime = resultTime;
     }
 
     public Integer getId() {
@@ -45,13 +45,22 @@ public class Result implements Serializable {
         this.request = request;
     }
 
-    public Integer getResulTimeInt() {
-        return resulTimeInt;
+    public Integer getTimeInt() {
+        return timeInt;
     }
 
-    public void setResulTimeInt(Integer resulTimeInt) {
-        this.resulTimeInt = resulTimeInt;
-        this.resultTime = new Time(resulTimeInt);
+    public void setTimeInt(Integer timeInt) {
+        this.timeInt = timeInt;
+        this.resultTime = new Time(timeInt);
+    }
+
+    public Time getResultTime() {
+        return resultTime;
+    }
+
+    public void setResultTime(Time resultTime) {
+        this.resultTime = resultTime;
+        this.timeInt = resultTime.getAll();
     }
 
     @Override

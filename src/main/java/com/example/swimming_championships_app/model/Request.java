@@ -1,10 +1,11 @@
 package com.example.swimming_championships_app.model;
 
 import com.example.swimming_championships_app.util.Time;
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Formula;
 
 import java.io.Serializable;
-
 
 @Entity
 public class Request implements Serializable {
@@ -21,7 +22,7 @@ public class Request implements Serializable {
     @JoinColumn(name  = "id_ch")
     private Championship championship;
     @Column(name = "request_time")
-    private Integer requestTimeInt;
+    private Integer timeInt;
     @OneToOne(mappedBy = "request")
     private Result result;
     @Transient
@@ -30,13 +31,14 @@ public class Request implements Serializable {
     public Request() {
     }
 
-    public Request(Integer id, Discipline discipline, Sportsman sportsman, Championship championship, Integer requestTimeInt) {
+    public Request(Integer id, Discipline discipline, Sportsman sportsman, Championship championship, Integer timeInt, Result result, Time requestTime) {
         this.id = id;
         this.discipline = discipline;
         this.sportsman = sportsman;
         this.championship = championship;
-        this.requestTimeInt = requestTimeInt;
-        this.requestTime = new Time(requestTimeInt);
+        this.timeInt = timeInt;
+        this.result = result;
+        this.requestTime = requestTime;
     }
 
     public Integer getId() {
@@ -71,13 +73,30 @@ public class Request implements Serializable {
         this.championship = championship;
     }
 
-    public Integer getRequestTimeInt() {
-        return requestTimeInt;
+    public Result getResult() {
+        return result;
     }
 
-    public void setRequestTimeInt(Integer requestTimeInt) {
-        this.requestTimeInt = requestTimeInt;
-        this.requestTime = new Time(requestTimeInt);
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
+    public Integer getTimeInt() {
+        return timeInt;
+    }
+
+    public void setTimeInt(Integer timeInt) {
+        this.timeInt = timeInt;
+        this.requestTime = new Time(timeInt);
+    }
+
+    public Time getRequestTime() {
+        return requestTime;
+    }
+
+    public void setRequestTime(Time requestTime) {
+        this.requestTime = requestTime;
+        this.timeInt = requestTime.getAll();
     }
 
     @Override
