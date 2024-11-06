@@ -1,9 +1,7 @@
 package com.example.swimming_championships_app.model;
 
 import com.example.swimming_championships_app.util.Time;
-import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Formula;
 
 import java.io.Serializable;
 
@@ -36,8 +34,8 @@ public class Request implements Serializable {
         this.discipline = discipline;
         this.sportsman = sportsman;
         this.championship = championship;
-        this.timeInt = timeInt;
         this.result = result;
+        this.timeInt = timeInt;
         this.requestTime = requestTime;
     }
 
@@ -89,14 +87,17 @@ public class Request implements Serializable {
         this.timeInt = timeInt;
         this.requestTime = new Time(timeInt);
     }
-
     public Time getRequestTime() {
         return requestTime;
     }
-
     public void setRequestTime(Time requestTime) {
         this.requestTime = requestTime;
         this.timeInt = requestTime.getAll();
+    }
+
+    @PostLoad
+    private void load(){
+        this.requestTime = new Time(this.timeInt);
     }
 
     @Override
@@ -106,6 +107,7 @@ public class Request implements Serializable {
                 "\n\tdiscipline=" + discipline +
                 "\n\tsportsman=" + sportsman +
                 "\n\tchampionship=" + championship +
+                "\n\ttimeInt=" + timeInt +
                 "\n\trequestTime=" + requestTime +
                 '}';
     }

@@ -63,11 +63,17 @@ public class Result implements Serializable {
         this.timeInt = resultTime.getAll();
     }
 
+    @PostLoad
+    private void postLoad(){
+        resultTime = new Time(timeInt);
+    }
+
     @Override
     public String toString() {
         return "Result{" +
                 "\n\tid=" + id +
                 "\n\trequest=" + request +
+                "\n\ttimeInt=" + timeInt +
                 "\n\tresultTime=" + resultTime +
                 '}';
     }

@@ -143,4 +143,26 @@ public class RequestResult {
         this.resultTime = resultTime;
         this.resultTimeInt = resultTime.getAll();
     }
+
+    @PostLoad
+    private void postLoad(){
+        resultTime = new Time(resultTimeInt);
+        requestTime = new Time(requestTimeInt);
+    }
+
+    @Override
+    public String toString() {
+        return "RequestResult{" +
+                "championship=" + championship +
+                ", sportsmanFullName='" + sportsmanFullName + '\'' +
+                ", trainerFullName='" + trainerFullName + '\'' +
+                ", style='" + style + '\'' +
+                ", distance=" + distance +
+                ", discipline='" + discipline + '\'' +
+                ", requestTimeInt=" + requestTimeInt +
+                ", resultTimeInt=" + resultTimeInt +
+                ", requestTime=" + requestTime +
+                ", resultTime=" + resultTime +
+                '}';
+    }
 }
