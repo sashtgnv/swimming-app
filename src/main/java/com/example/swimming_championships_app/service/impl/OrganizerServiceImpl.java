@@ -29,4 +29,9 @@ public class OrganizerServiceImpl implements OrganizerService {
     public Organizer save(Organizer organizer) {
         return repository.save(organizer);
     }
+
+    @Override
+    public Organizer findByLoginAndPassword(String login, String password) {
+        return repository.findByLoginAndPassword(login, password);
+    }
 }

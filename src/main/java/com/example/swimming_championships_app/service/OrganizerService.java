@@ -6,5 +6,5 @@ import org.aspectj.weaver.ast.Or;
 import java.util.List;
 
 public interface OrganizerService extends Service<Organizer> {
-
+    Organizer findByLoginAndPassword(String login, String password);
 }
