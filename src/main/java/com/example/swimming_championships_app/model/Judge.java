@@ -13,6 +13,7 @@ public class Judge implements Serializable {
     private String surname;
     private String name;
     private String patronymic;
+    private String deserts;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "judges_championships",
                 joinColumns = @JoinColumn(name = "id_judge"),
@@ -22,16 +23,19 @@ public class Judge implements Serializable {
     public Judge() {
     }
 
-    public Judge(Integer id, String surname, String name, String patronymic, List<Championship> championships) {
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Judge(Integer id, String surname, String name, String patronymic, String deserts, List<Championship> championships) {
         this.id = id;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
+        this.deserts = deserts;
         this.championships = championships;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public void setId(Integer id) {
@@ -70,6 +74,14 @@ public class Judge implements Serializable {
         this.championships = championships;
     }
 
+    public String getDeserts() {
+        return deserts;
+    }
+
+    public void setDeserts(String deserts) {
+        this.deserts = deserts;
+    }
+
     @Override
     public String toString() {
         return "Judge{" +
@@ -77,6 +89,7 @@ public class Judge implements Serializable {
                 "\n\tsurname='" + surname + '\'' +
                 "\n\tname='" + name + '\'' +
                 "\n\tpatronymic='" + patronymic + '\'' +
+                "\n\tdeserts='" + deserts +'\'' +
                 '}';
     }
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import org.springframework.context.ApplicationContext;
 
@@ -53,11 +54,11 @@ public class LoginController implements Initializable{
         if (loginField.getText()!=null && passwordField.getText()!=null){
             Organizer user = organizerService.findByLoginAndPassword(loginField.getText(),passwordField.getText());
             if (user!=null) {
-//                parentController.setCurrentUser(user);
+                parentController.setCurrentUser(user);
                 FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("organizer-view.fxml"));
-                VBox centerContainer = parentController.getCenterContainer();
-                centerContainer.getChildren().set(0,loader.load());
-            } else {    
+                BorderPane root = parentController.getRoot();
+                root.setCenter(loader.load());
+            } else {
                 wrongAuthLabel.setVisible(true);
                 wrongAuthLabel.setManaged(true);
             }

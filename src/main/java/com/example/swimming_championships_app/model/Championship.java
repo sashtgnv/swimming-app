@@ -13,24 +13,36 @@ public class Championship implements Serializable {
     private Integer id;
     private String name;
     private Date date;
+    @Column(name = "document_url")
     private String document;
     private String adress;
+    @Column(name = "photo_url")
+    private String photo;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "judges_championships",
                 joinColumns = @JoinColumn(name = "id_champ"),
                 inverseJoinColumns = @JoinColumn(name = "id_judge"))
     private List<Judge> judges;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "championships_disciplines",
+            joinColumns = @JoinColumn(name = "id_champ"),
+            inverseJoinColumns = @JoinColumn(name = "id_discipline")
+    )
+    private List<Discipline> disciplines;
+
 
     public Championship() {
     }
 
-    public Championship(Integer id, String name, Date date, String document, String adress, List<Judge> judges) {
+    public Championship(Integer id, String name, Date date, String document, String adress, String photo, List<Judge> judges, List<Discipline> disciplines) {
         this.id = id;
         this.name = name;
         this.date = date;
         this.document = document;
         this.adress = adress;
+        this.photo = photo;
         this.judges = judges;
+        this.disciplines = disciplines;
     }
 
     public Integer getId() {
@@ -81,6 +93,22 @@ public class Championship implements Serializable {
         this.judges = judges;
     }
 
+    public List<Discipline> getDisciplines() {
+        return disciplines;
+    }
+
+    public void setDisciplines(List<Discipline> disciplines) {
+        this.disciplines = disciplines;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     @Override
     public String toString() {
         return "Championship{" +
@@ -88,6 +116,7 @@ public class Championship implements Serializable {
                 "\n\tname='" + name + '\'' +
                 "\n\tdate=" + date +
                 "\n\tdocument='" + document + '\'' +
+                "\n\tphoto='" + photo + '\'' +
                 "\n\tadress='" + adress + '\'' +
                 "\n\tjudges='" + judges +
                 "\n}";

@@ -4,9 +4,11 @@ import com.example.swimming_championships_app.model.Result;
 import com.example.swimming_championships_app.repository.ResultRepository;
 import com.example.swimming_championships_app.service.ResultService;
 import com.example.swimming_championships_app.util.Time;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ResultServiceImpl implements ResultService {
     ResultRepository repository;
 

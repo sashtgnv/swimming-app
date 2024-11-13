@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" onMouseClicked="#onDoubleClick" prefHeight="400.0" prefWidth="400.0"
+      xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.swimming_championships_app.ui.controllers.MiniChampionshipController">
+   <children>
+      <Label fx:id="nameLabel" layoutX="157.0" layoutY="80.0" text="Название" />
+      <Label fx:id="descLabel" text="Дата" wrapText="true" />
+      <ImageView fx:id="imgView" fitHeight="304.0" fitWidth="414.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</VBox>

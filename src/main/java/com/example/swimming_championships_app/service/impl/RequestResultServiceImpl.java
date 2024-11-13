@@ -7,6 +7,7 @@ import com.example.swimming_championships_app.util.Time;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class RequestResultServiceImpl implements RequestResultService {
     private final RequestResultRepository repository;

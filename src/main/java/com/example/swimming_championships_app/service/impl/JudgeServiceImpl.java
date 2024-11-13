@@ -3,9 +3,11 @@ package com.example.swimming_championships_app.service.impl;
 import com.example.swimming_championships_app.model.Judge;
 import com.example.swimming_championships_app.repository.JudgeRepository;
 import com.example.swimming_championships_app.service.JudgeService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class JudgeServiceImpl implements JudgeService {
     JudgeRepository repository;
 

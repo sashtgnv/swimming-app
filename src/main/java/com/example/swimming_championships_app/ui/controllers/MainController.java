@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -21,10 +22,13 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private VBox centerContainer;
+    private VBox vBox;
 
-    public VBox getCenterContainer() {
-        return centerContainer;
+    @FXML
+    private BorderPane root;
+
+    public BorderPane getRoot() {
+        return root;
     }
 
     @FXML
@@ -52,25 +56,31 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void champButtonAction() {
-
+    void champButtonAction() throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("championship-views/all-championships-view.fxml"));
+        root.setCenter(loader.load());
+        AllChampionshipsController controller = loader.getController();
+        controller.setParentController(this);
     }
 
     @FXML
-    void judgeButtonAction() {
-
+    void judgeButtonAction() throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("judges-view.fxml"));
+        root.setCenter(loader.load());
     }
 
     @FXML
     void organizerButtonAction() throws IOException {
+        FXMLLoader loader;
         if (currentUser == null) {
-            FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("login-view.fxml"));
-            centerContainer.getChildren().set(0,loader.load());
+            loader = new FXMLLoader(MainStage.class.getResource("login-view.fxml"));
+            root.setCenter(loader.load());
             LoginController loginController = loader.getController();
             loginController.setParentController(this);
         }
         else {
-//TODO
+            loader = new FXMLLoader(MainStage.class.getResource("organizer-view.fxml"));
+            root.setCenter(loader.load());
         }
     }
 
@@ -78,6 +88,18 @@ public class MainController implements Initializable {
     void requestButtonAction() {
 
     }
+
+
+    @FXML
+    void requestProtocolButtonAction() {
+
+    }
+
+    @FXML
+    void resultProtocolButtonAction() {
+
+    }
+
 
     @FXML
     void statButtonAction() {

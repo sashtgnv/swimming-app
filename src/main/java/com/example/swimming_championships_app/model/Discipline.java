@@ -1,11 +1,9 @@
 package com.example.swimming_championships_app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Discipline implements Serializable {
@@ -14,14 +12,21 @@ public class Discipline implements Serializable {
     private Integer id;
     private String style;
     private String distance;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "championships_disciplines",
+            joinColumns = @JoinColumn(name = "id_discipline"),
+            inverseJoinColumns = @JoinColumn(name = "id_champ")
+    )
+    private List<Championship> championships;
 
     public Discipline() {
     }
 
-    public Discipline(Integer id, String style, String distance) {
+    public Discipline(Integer id, String style, String distance, List<Championship> championships) {
         this.id = id;
         this.style = style;
         this.distance = distance;
+        this.championships = championships;
     }
 
     public Integer getId() {
@@ -46,6 +51,14 @@ public class Discipline implements Serializable {
 
     public void setDistance(String distance) {
         this.distance = distance;
+    }
+
+    public List<Championship> getChampionships() {
+        return championships;
+    }
+
+    public void setChampionships(List<Championship> championships) {
+        this.championships = championships;
     }
 
     @Override
