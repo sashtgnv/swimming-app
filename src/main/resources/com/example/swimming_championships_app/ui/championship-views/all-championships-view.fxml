@@ -21,7 +21,7 @@
                </VBox.margin></Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../download-gif.gif" />
+                  <Image url="@../images/download-gif.gif" />
                </image></ImageView>
          </children>
       </VBox>

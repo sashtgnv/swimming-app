@@ -51,8 +51,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        scrollPane.setFitToWidth(true);
-        scrollPane.setFitToHeight(true);
+
     }
 
     @FXML
@@ -73,13 +72,12 @@ public class MainController implements Initializable {
     void organizerButtonAction() throws IOException {
         FXMLLoader loader;
         if (currentUser == null) {
-            loader = new FXMLLoader(MainStage.class.getResource("login-view.fxml"));
+            loader = new FXMLLoader(MainStage.class.getResource("organizer-views/login-view.fxml"));
             root.setCenter(loader.load());
             LoginController loginController = loader.getController();
             loginController.setParentController(this);
-        }
-        else {
-            loader = new FXMLLoader(MainStage.class.getResource("organizer-view.fxml"));
+        } else {
+            loader = new FXMLLoader(MainStage.class.getResource("organizer-views/organizer-view.fxml"));
             root.setCenter(loader.load());
         }
     }
@@ -91,13 +89,15 @@ public class MainController implements Initializable {
 
 
     @FXML
-    void requestProtocolButtonAction() {
-
+    void requestProtocolButtonAction() throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("request-protocol-view.fxml"));
+        root.setCenter(loader.load());
     }
 
     @FXML
-    void resultProtocolButtonAction() {
-
+    void resultProtocolButtonAction() throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("result-protocol-view.fxml"));
+        root.setCenter(loader.load());
     }
 
 

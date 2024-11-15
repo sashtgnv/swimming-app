@@ -1,5 +1,7 @@
 package com.example.swimming_championships_app.service.impl;
 
+import com.example.swimming_championships_app.model.Championship;
+import com.example.swimming_championships_app.model.Discipline;
 import com.example.swimming_championships_app.model.Request;
 import com.example.swimming_championships_app.repository.RequestRepository;
 import com.example.swimming_championships_app.service.RequestService;
@@ -29,5 +31,10 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public Request save(Request request) {
         return repository.save(request);
+    }
+
+    @Override
+    public List<Request> findByChampionshipAndDiscipline(Championship championship, Discipline discipline) {
+        return repository.findByChampionshipAndDisciplineOrderByTimeInt(championship, discipline);
     }
 }

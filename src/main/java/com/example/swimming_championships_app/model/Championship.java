@@ -19,15 +19,10 @@ public class Championship implements Serializable {
     @Column(name = "photo_url")
     private String photo;
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "judges_championships",
-                joinColumns = @JoinColumn(name = "id_champ"),
-                inverseJoinColumns = @JoinColumn(name = "id_judge"))
+    @JoinTable(name = "judges_championships", joinColumns = @JoinColumn(name = "id_champ"), inverseJoinColumns = @JoinColumn(name = "id_judge"))
     private List<Judge> judges;
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "championships_disciplines",
-            joinColumns = @JoinColumn(name = "id_champ"),
-            inverseJoinColumns = @JoinColumn(name = "id_discipline")
-    )
+    @JoinTable(name = "championships_disciplines", joinColumns = @JoinColumn(name = "id_champ"), inverseJoinColumns = @JoinColumn(name = "id_discipline"))
     private List<Discipline> disciplines;
 
 
@@ -111,14 +106,6 @@ public class Championship implements Serializable {
 
     @Override
     public String toString() {
-        return "Championship{" +
-                "\n\tid=" + id +
-                "\n\tname='" + name + '\'' +
-                "\n\tdate=" + date +
-                "\n\tdocument='" + document + '\'' +
-                "\n\tphoto='" + photo + '\'' +
-                "\n\tadress='" + adress + '\'' +
-                "\n\tjudges='" + judges +
-                "\n}";
+        return name + '\n' + date.toString().split(" ")[0];
     }
 }

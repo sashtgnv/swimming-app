@@ -34,8 +34,8 @@ public class Request implements Serializable {
         this.discipline = discipline;
         this.sportsman = sportsman;
         this.championship = championship;
-        this.result = result;
         this.timeInt = timeInt;
+        this.result = result;
         this.requestTime = requestTime;
     }
 

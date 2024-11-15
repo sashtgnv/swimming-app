@@ -6,6 +6,7 @@ import com.example.swimming_championships_app.model.Judge;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -17,6 +18,9 @@ public class JudgesController implements Initializable {
 
     @FXML
     private VBox vBox;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,6 +38,5 @@ public class JudgesController implements Initializable {
             Label l = new Label(text.toString());
             vBox.getChildren().add(l);
         }
-
     }
 }

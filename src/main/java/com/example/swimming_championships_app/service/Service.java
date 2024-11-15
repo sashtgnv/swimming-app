@@ -4,7 +4,7 @@ import com.example.swimming_championships_app.model.Sportsman;
 
 import java.util.List;
 
-public interface Service <T>{
+public interface Service <T> {
     List<T> findAll();
 
     void delete(T t);

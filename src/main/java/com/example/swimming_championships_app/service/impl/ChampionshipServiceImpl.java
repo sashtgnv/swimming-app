@@ -5,6 +5,7 @@ import com.example.swimming_championships_app.repository.ChampionshipRepository;
 import com.example.swimming_championships_app.service.ChampionshipService;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,5 +29,10 @@ public class ChampionshipServiceImpl implements ChampionshipService {
     @Override
     public Championship save(Championship championship) {
         return repository.save(championship);
+    }
+
+    @Override
+    public List<Championship> findEarlyThan(Date date) {
+        return repository.findByDateLessThanEqualOrderByDateDesc(date);
     }
 }

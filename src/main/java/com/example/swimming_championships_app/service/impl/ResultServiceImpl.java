@@ -1,5 +1,6 @@
 package com.example.swimming_championships_app.service.impl;
 
+import com.example.swimming_championships_app.model.Request;
 import com.example.swimming_championships_app.model.Result;
 import com.example.swimming_championships_app.repository.ResultRepository;
 import com.example.swimming_championships_app.service.ResultService;
@@ -29,5 +30,10 @@ public class ResultServiceImpl implements ResultService {
     @Override
     public Result save(Result result) {
         return repository.save(result);
+    }
+
+    @Override
+    public Result findResultByRequest(Request request) {
+        return repository.findResultByRequest(request);
     }
 }

@@ -55,7 +55,7 @@ public class LoginController implements Initializable{
             Organizer user = organizerService.findByLoginAndPassword(loginField.getText(),passwordField.getText());
             if (user!=null) {
                 parentController.setCurrentUser(user);
-                FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("organizer-view.fxml"));
+                FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("organizer-views/organizer-view.fxml"));
                 BorderPane root = parentController.getRoot();
                 root.setCenter(loader.load());
             } else {

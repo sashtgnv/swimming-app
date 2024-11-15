@@ -41,13 +41,9 @@ public class Time {
 
     @Override
     public String toString() {
-        String m = (String.valueOf(min).length()==1) ? "0" + min : String.valueOf(min);
-        String s = (String.valueOf(sec).length()==1) ? "0" + sec : String.valueOf(sec);
-        String ms = (String.valueOf(milisec).length()==1) ? "0" + milisec : String.valueOf(milisec);
-        return "Time{" +
-                m + ':' +
-                s + '.' +
-                ms +
-                '}';
+        String m = (String.valueOf(min).length() == 1) ? "0" + min : String.valueOf(min);
+        String s = (String.valueOf(sec).length() == 1) ? "0" + sec : String.valueOf(sec);
+        String ms = (String.valueOf(milisec).length() == 1) ? "0" + milisec : String.valueOf(milisec);
+        return m + ':' + s + '.' + ms;
     }
 }
