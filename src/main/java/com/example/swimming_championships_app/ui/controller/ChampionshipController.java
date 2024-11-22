@@ -1,10 +1,9 @@
-package com.example.swimming_championships_app.ui.controllers;
+package com.example.swimming_championships_app.ui.controller;
 
 import com.example.swimming_championships_app.model.Championship;
 import com.example.swimming_championships_app.model.Discipline;
 import com.example.swimming_championships_app.model.Judge;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;

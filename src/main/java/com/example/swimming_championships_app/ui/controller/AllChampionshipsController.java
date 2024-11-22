@@ -1,12 +1,10 @@
-package com.example.swimming_championships_app.ui.controllers;
+package com.example.swimming_championships_app.ui.controller;
 
 import com.example.swimming_championships_app.SwimmingChampionshipsApplication;
 import com.example.swimming_championships_app.model.Championship;
 import com.example.swimming_championships_app.service.impl.ChampionshipServiceImpl;
 import com.example.swimming_championships_app.ui.MainStage;
 import javafx.application.Platform;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
-import jdk.jfr.Threshold;
 
 import java.io.IOException;
 import java.net.URL;

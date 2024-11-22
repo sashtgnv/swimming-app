@@ -1,4 +1,4 @@
-package com.example.swimming_championships_app.ui.controllers;
+package com.example.swimming_championships_app.ui.controller;
 
 import com.example.swimming_championships_app.SwimmingChampionshipsApplication;
 import com.example.swimming_championships_app.model.Organizer;
@@ -13,7 +13,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;

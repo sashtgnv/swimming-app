@@ -7,7 +7,7 @@
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
       minWidth="-Infinity" onMouseClicked="#onDoubleClick" prefHeight="400.0" prefWidth="400.0"
       xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.swimming_championships_app.ui.controllers.MiniChampionshipController">
+      fx:controller="com.example.swimming_championships_app.ui.controller.MiniChampionshipController">
    <children>
       <Label fx:id="nameLabel" layoutX="157.0" layoutY="80.0" text="Название" />
       <Label fx:id="descLabel" text="Дата" wrapText="true" />

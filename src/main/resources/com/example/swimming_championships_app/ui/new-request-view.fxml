@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swimming_championships_app.ui.controller.NewRequestController">
+   <content>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="930.0">
+         <children>
+            <Label text="Отправить заявку">
+               <VBox.margin>
+                  <Insets bottom="50.0" top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="RIGHT" text="Выберете соревнование*">
+               <graphic>
+                  <ComboBox fx:id="championshipChoose" onHidden="#selectChampionship" prefHeight="25.0" prefWidth="181.0" />
+               </graphic>
+            </Label>
+            <HBox fx:id="pageBody" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="360.0" prefWidth="252.0">
+                     <children>
+                        <Label contentDisplay="BOTTOM" text="Спортсмен*">
+                           <graphic>
+                              <VBox prefHeight="146.0" prefWidth="244.0">
+                                 <children>
+                                    <Label text="Фамилия">
+                                       <graphic>
+                                          <TextField fx:id="sportsmanSurname" />
+                                       </graphic>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="10.0" text="Имя">
+                                       <graphic>
+                                          <TextField fx:id="sportsmanName" />
+                                       </graphic>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="87.0" text="Отчество">
+                                       <graphic>
+                                          <TextField fx:id="sportsmanPatronymic" />
+                                       </graphic>
+                                    </Label>
+                                    <Label text="Разряд">
+                                       <graphic>
+                                          <ComboBox fx:id="sportsmanGrade" prefHeight="26.0" prefWidth="149.0" promptText="Не указан" />
+                                       </graphic>
+                                    </Label>
+                                    <Label text="Дата рождения (ГГГГ.ММ.ДД)" wrapText="true" />
+                                    <TextField fx:id="sportsmanDateField" maxWidth="-Infinity" onKeyTyped="#validateBirthDate" prefHeight="26.0" prefWidth="152.0" />
+                                    <Label fx:id="sportsmanWarningLbl" text="Пожалуйста, введите дату правильно" textFill="RED" visible="false" />
+                                 </children>
+                              </VBox>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <CheckBox fx:id="trainerCheckBox" mnemonicParsing="false" onAction="#setTrainerVisible" text="Тренер">
+                           <VBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <Label fx:id="trainerLabel" contentDisplay="BOTTOM" text="Тренер">
+                           <graphic>
+                              <VBox prefHeight="128.0" prefWidth="241.0">
+                                 <children>
+                                    <Label text="Фамилия">
+                                       <graphic>
+                                          <TextField fx:id="trainerSurname" />
+                                       </graphic>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="10.0" text="Имя">
+                                       <graphic>
+                                          <TextField fx:id="trainerName" />
+                                       </graphic>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="87.0" text="Отчество">
+                                       <graphic>
+                                          <TextField fx:id="trainerPatronymic" />
+                                       </graphic>
+                                    </Label>
+                                    <Label text="Разряд">
+                                       <graphic>
+                                          <ComboBox fx:id="trainerGrade" prefHeight="26.0" prefWidth="149.0" promptText="Не указан" />
+                                       </graphic>
+                                    </Label>
+                                    <Label text="Дата рождения (ГГГГ.ММ.ДД)" wrapText="true" />
+                                    <TextField fx:id="trainerDateField" maxWidth="-Infinity" onKeyTyped="#validateBirthDate" prefHeight="26.0" prefWidth="152.0" />
+                                    <Label fx:id="trainerWarningLbl" text="Пожалуйста, введите дату правильно" textFill="RED" visible="false" />
+                                 </children>
+                              </VBox>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="200.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label contentDisplay="BOTTOM" layoutX="96.0" layoutY="88.0" text="дистанция">
+                           <graphic>
+                              <ComboBox fx:id="distanceChoose" editable="true" prefWidth="150.0" />
+                           </graphic>
+                        </Label>
+                        <Label contentDisplay="BOTTOM" text="время">
+                           <graphic>
+                              <TextField fx:id="requestTimeField" />
+                           </graphic>
+                        </Label>
+                        <Label contentDisplay="BOTTOM" text="заявки на отправление">
+                           <graphic>
+                              <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="200.0" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button fx:id="saveRequestsButton" mnemonicParsing="false" text="отправить">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

@@ -1,4 +1,4 @@
-package com.example.swimming_championships_app.ui.controllers;
+package com.example.swimming_championships_app.ui.controller;
 
 import com.example.swimming_championships_app.model.Organizer;
 import com.example.swimming_championships_app.ui.MainStage;
@@ -83,10 +83,10 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void requestButtonAction() {
-
+    void requestButtonAction() throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("new-request-view.fxml"));
+        root.setCenter(loader.load());
     }
-
 
     @FXML
     void requestProtocolButtonAction() throws IOException {
@@ -99,7 +99,6 @@ public class MainController implements Initializable {
         FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("result-protocol-view.fxml"));
         root.setCenter(loader.load());
     }
-
 
     @FXML
     void statButtonAction() {

@@ -1,10 +1,11 @@
-package com.example.swimming_championships_app.ui.controllers;
+package com.example.swimming_championships_app.ui.controller;
 
 import com.example.swimming_championships_app.SwimmingChampionshipsApplication;
 import com.example.swimming_championships_app.model.*;
 import com.example.swimming_championships_app.service.impl.ChampionshipServiceImpl;
 import com.example.swimming_championships_app.service.impl.RequestServiceImpl;
 import com.example.swimming_championships_app.service.impl.ResultServiceImpl;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -14,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
 
