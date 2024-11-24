@@ -5,6 +5,8 @@ import com.example.swimming_championships_app.repository.SportsmanRepository;
 import com.example.swimming_championships_app.service.SportsmanService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,5 +30,10 @@ public class SportsmanServiceImpl implements SportsmanService {
     @Override
     public Sportsman save(Sportsman sportsman) {
         return repository.save(sportsman);
+    }
+
+    @Override
+    public Sportsman findSportsmanByNameAndPatronymicAndSurnameAndBirthDate(String name, String patronymic, String surname, LocalDate birthDate) {
+        return repository.findSportsmanByNameAndPatronymicAndSurnameAndBirthDate(name,patronymic,surname,birthDate);
     }
 }

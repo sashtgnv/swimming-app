@@ -10,10 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.time.LocalDate;
+import java.util.*;
 
 @SpringBootApplication
 public class SwimmingChampionshipsApplication {
@@ -55,12 +53,16 @@ public class SwimmingChampionshipsApplication {
 		SwimmingChampionshipsApplication.disciplineService = disciplineService;
 	}
 
+
 	public static void main(String[] args) {
 		context = SpringApplication.run(SwimmingChampionshipsApplication.class, args);
 		Application.launch(MainStage.class,args);
-		Random r = new Random();
-		var requests = requestService.findAll();
-
-//		System.out.println(new Time("04:00.00").getAll());
+//		String trainerNameText = "Юлия";
+//		String trainerPatronymicText = "Сергеевна";
+//		String trainerSurnameText = "Веселова";
+//		LocalDate trainerDate = LocalDate.of(1983,3,6);
+//		Trainer trainer = trainerService.findTrainerByNameAndPatronymicAndSurnameAndBirthDate(trainerNameText,trainerPatronymicText,trainerSurnameText,trainerDate);
+//		System.out.println(trainer);
+//		System.out.println();
 	}
 }

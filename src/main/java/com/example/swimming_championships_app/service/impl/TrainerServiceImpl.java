@@ -5,6 +5,7 @@ import com.example.swimming_championships_app.repository.TrainerRepository;
 import com.example.swimming_championships_app.service.TrainerService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -29,4 +30,15 @@ public class TrainerServiceImpl implements TrainerService {
     public Trainer save(Trainer trainer) {
         return repository.save(trainer);
     }
+
+    @Override
+    public Trainer findTrainerByNameAndPatronymicAndSurnameAndBirthDate(String name, String patronymic, String surname, LocalDate birthDate) {
+        return repository.findTrainerByNameAndPatronymicAndSurnameAndBirthDate(name,patronymic,surname,birthDate);
+    }
+
+    public Trainer findTrainerByName(String name) {
+        return repository.findTrainerByName(name);
+    }
+
+
 }

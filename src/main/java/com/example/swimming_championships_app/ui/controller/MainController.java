@@ -22,9 +22,6 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private VBox vBox;
-
-    @FXML
     private BorderPane root;
 
     public BorderPane getRoot() {
@@ -42,12 +39,6 @@ public class MainController implements Initializable {
 
     @FXML
     private Button requestButton;
-
-    @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
-    private Button statButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

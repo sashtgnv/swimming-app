@@ -3,6 +3,7 @@ package com.example.swimming_championships_app.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -13,7 +14,7 @@ public class Sportsman implements Serializable {
     private String surname;
     private String name;
     private String patronymic;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String grade;
     @ManyToOne
     @JoinColumn(name = "id_trainer")
@@ -22,7 +23,7 @@ public class Sportsman implements Serializable {
     public Sportsman() {
     }
 
-    public Sportsman(Integer id, String surname, String name, String patronymic, Date birthDate, String grade, Trainer trainer) {
+    public Sportsman(Integer id, String surname, String name, String patronymic, LocalDate birthDate, String grade, Trainer trainer) {
         this.id = id;
         this.surname = surname;
         this.name = name;
@@ -64,11 +65,11 @@ public class Sportsman implements Serializable {
         this.patronymic = patronymic;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

@@ -63,10 +63,6 @@ public class Discipline implements Serializable {
 
     @Override
     public String toString() {
-        return "Discipline{" +
-                "\n\tid=" + id +
-                "\n\tstyle='" + style + '\'' +
-                "\n\tdistance='" + distance + '\'' +
-                '}';
+        return distance + "м " + style;
     }
 }

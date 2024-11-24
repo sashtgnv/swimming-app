@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -13,39 +12,34 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="champButton" maxWidth="1.7976931348623157E308" minHeight="75.0" mnemonicParsing="false" onAction="#champButtonAction" text="Календарь соревнований" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="champButton" maxWidth="1.7976931348623157E308" minHeight="90.0" mnemonicParsing="false" onAction="#champButtonAction" text="Календарь соревнований" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="judgeButton" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="75.0" mnemonicParsing="false" onAction="#judgeButtonAction" text="Судьи">
+            <Button fx:id="judgeButton" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" minHeight="90.0" mnemonicParsing="false" onAction="#judgeButtonAction" text="Судьи">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="requestButton" layoutX="10.0" layoutY="110.0" maxWidth="1.7976931348623157E308" minHeight="75.0" mnemonicParsing="false" onAction="#requestButtonAction" text="Подать заявку">
+            <Button fx:id="requestButton" layoutX="10.0" layoutY="110.0" maxWidth="1.7976931348623157E308" minHeight="90.0" mnemonicParsing="false" onAction="#requestButtonAction" text="Подать заявку">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="requestProtocolButton" layoutX="10.0" layoutY="210.0" maxWidth="1.7976931348623157E308" minHeight="75.0" mnemonicParsing="false" onAction="#requestProtocolButtonAction" text="Протоколы заявок">
+            <Button fx:id="requestProtocolButton" layoutX="10.0" layoutY="210.0" maxWidth="1.7976931348623157E308" minHeight="90.0" mnemonicParsing="false" onAction="#requestProtocolButtonAction" text="Протоколы заявок">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="resultProtocolButton" layoutX="10.0" layoutY="250.0" maxWidth="1.7976931348623157E308" minHeight="75.0" mnemonicParsing="false" onAction="#resultProtocolButtonAction" text="Итоговые протоколы" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="resultProtocolButton" layoutX="10.0" layoutY="250.0" maxWidth="1.7976931348623157E308" minHeight="90.0" mnemonicParsing="false" onAction="#resultProtocolButtonAction" text="Итоговые протоколы" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="statButton" layoutX="10.0" layoutY="330.0" maxWidth="1.7976931348623157E308" minHeight="75.0" mnemonicParsing="false" onAction="#statButtonAction" text="Статистика">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="organizerButton" layoutX="10.0" layoutY="410.0" maxWidth="1.7976931348623157E308" minHeight="75.0" mnemonicParsing="false" onAction="#organizerButtonAction" text="Организаторам">
+            <Button fx:id="organizerButton" layoutX="10.0" layoutY="410.0" maxWidth="1.7976931348623157E308" minHeight="90.0" mnemonicParsing="false" onAction="#organizerButtonAction" text="Организаторам">
                <VBox.margin>
-                  <Insets top="90.0" />
+                  <Insets top="85.0" />
                </VBox.margin>
                <font>
                   <Font size="20.0" />
@@ -57,20 +51,6 @@
          </BorderPane.margin>
       </VBox>
    </left>
-   <center>
-      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
-         <content>
-            <VBox fx:id="vBox" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="620.0" prefWidth="929.0">
-               <children>
-                  <Label text="Label" />
-               </children>
-            </VBox>
-         </content>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-      </ScrollPane>
-   </center>
    <top>
       <Pane prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
    </top>
@@ -80,4 +60,11 @@
    <bottom>
       <Pane prefHeight="80.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </bottom>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Добро пожаловать" />
+         </children>
+      </VBox>
+   </center>
 </BorderPane>

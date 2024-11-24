@@ -20,19 +20,15 @@ public class Time {
     }
 
     public Time(String time) {
-        try {
-            String[] s = time.split(":");
-            min = Integer.parseInt(s[0]);
-            if (min > 59) throw new Exception();
-            String[] s1 = s[1].split("\\.");
-            sec = Integer.parseInt(s1[0]);
-            if (sec > 59) throw new Exception();
-            milisec = Integer.parseInt(s1[1]);
-            if (milisec > 999) throw new Exception();
-            this.all = min * 60 * 1000 + sec * 1000 + milisec;
-        } catch (Exception e) {
-            System.err.println("Invalid time format" + '\n' + time);
-        }
+        String[] s = time.split(":");
+        min = Integer.parseInt(s[0]);
+        if (min > 59) throw new RuntimeException();
+        String[] s1 = s[1].split("\\.");
+        sec = Integer.parseInt(s1[0]);
+        if (sec > 59) throw new RuntimeException();
+        milisec = Integer.parseInt(s1[1]);
+        if (milisec > 999) throw new RuntimeException();
+        this.all = min * 60 * 1000 + sec * 1000 + milisec;
     }
 
     public int getAll() {

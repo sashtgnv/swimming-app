@@ -3,7 +3,8 @@ package com.example.swimming_championships_app.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class Trainer implements Serializable {
     private String surname;
     private String name;
     private String patronymic;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String grade;
     @OneToMany(mappedBy = "trainer", fetch = FetchType.EAGER)
     private List<Sportsman> sportsmen;
@@ -21,7 +22,7 @@ public class Trainer implements Serializable {
     public Trainer() {
     }
 
-    public Trainer(Integer id, String surname, String name, String patronymic, Date birthDate, String grade, List<Sportsman> sportsmen) {
+    public Trainer(Integer id, String surname, String name, String patronymic, LocalDate birthDate, String grade, List<Sportsman> sportsmen) {
         this.id = id;
         this.surname = surname;
         this.name = name;
@@ -63,11 +64,11 @@ public class Trainer implements Serializable {
         this.patronymic = patronymic;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
