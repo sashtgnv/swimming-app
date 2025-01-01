@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//реализация интерфейса disciplineService
 @Service
 public class DisciplineServiceImpl implements DisciplineService {
     DisciplineRepository repository;

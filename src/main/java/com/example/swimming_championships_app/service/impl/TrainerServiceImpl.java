@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 
+//реализация интерфейса trainerService
 @Service
 public class TrainerServiceImpl implements TrainerService {
     TrainerRepository repository;
@@ -33,12 +34,6 @@ public class TrainerServiceImpl implements TrainerService {
 
     @Override
     public Trainer findTrainerByNameAndPatronymicAndSurnameAndBirthDate(String name, String patronymic, String surname, LocalDate birthDate) {
-        return repository.findTrainerByNameAndPatronymicAndSurnameAndBirthDate(name,patronymic,surname,birthDate);
+        return repository.findTrainerByNameAndPatronymicAndSurnameAndBirthDate(name, patronymic, surname, birthDate);
     }
-
-    public Trainer findTrainerByName(String name) {
-        return repository.findTrainerByName(name);
-    }
-
-
 }

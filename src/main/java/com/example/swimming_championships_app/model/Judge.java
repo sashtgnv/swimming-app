@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
+//сущность "judge"
 @Entity
 public class Judge implements Serializable {
     @Id
@@ -16,13 +18,12 @@ public class Judge implements Serializable {
     private String deserts;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "judges_championships",
-                joinColumns = @JoinColumn(name = "id_judge"),
-                inverseJoinColumns = @JoinColumn(name = "id_champ"))
+            joinColumns = @JoinColumn(name = "id_judge"),
+            inverseJoinColumns = @JoinColumn(name = "id_champ"))
     private List<Championship> championships;
 
     public Judge() {
     }
-
 
 
     public Integer getId() {
@@ -83,13 +84,20 @@ public class Judge implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Judge judge = (Judge) o;
+        return Objects.equals(id, judge.id) && Objects.equals(surname, judge.surname) && Objects.equals(name, judge.name) && Objects.equals(patronymic, judge.patronymic) && Objects.equals(deserts, judge.deserts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, surname, name, patronymic, deserts);
+    }
+
+    @Override
     public String toString() {
-        return "Judge{" +
-                "\n\tid=" + id +
-                "\n\tsurname='" + surname + '\'' +
-                "\n\tname='" + name + '\'' +
-                "\n\tpatronymic='" + patronymic + '\'' +
-                "\n\tdeserts='" + deserts +'\'' +
-                '}';
+        return surname + ' ' + name + ' ' + patronymic;
     }
 }

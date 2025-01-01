@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.swimming_championships_app.ui.controller.OrganizerController"
-            prefHeight="400.0" prefWidth="600.0">
-<!--    TODO-->
-
-</AnchorPane>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="929.0" styleClass="center" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swimming_championships_app.ui.controller.OrganizerController">
+   <children>
+      <Button fx:id="newChampionshipButton" mnemonicParsing="false" onAction="#newChampionship" prefWidth="250.0" text="Новые соревнования">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="fillResultProtocolButton" mnemonicParsing="false" onAction="#fillResultProtocol" prefWidth="250.0" text="Заполнить итоговые протоколы">
+         <VBox.margin>
+            <Insets top="50.0" />
+         </VBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</VBox>

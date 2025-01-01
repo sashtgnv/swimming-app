@@ -3,13 +3,14 @@ package com.example.swimming_championships_app.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-
 import java.time.LocalDate;
 import java.util.List;
 
+//сущность "trainer"
 @Entity
 public class Trainer implements Serializable {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String surname;
     private String name;

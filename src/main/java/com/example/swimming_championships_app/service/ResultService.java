@@ -3,8 +3,8 @@ package com.example.swimming_championships_app.service;
 import com.example.swimming_championships_app.model.Request;
 import com.example.swimming_championships_app.model.Result;
 
-import java.util.List;
-
-public interface ResultService extends Service<Result>{
+//интерфейс сервиса для репозитория result
+public interface ResultService extends Service<Result> {
+    // метод поиска записи по заявке
     Result findResultByRequest(Request request);
 }

@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 
+// класс-контроллер списка соревнований
 public class AllChampionshipsController implements Initializable {
 
     private ChampionshipServiceImpl championshipService;
@@ -39,21 +40,27 @@ public class AllChampionshipsController implements Initializable {
     @FXML
     private VBox vBox;
 
+    //    метод инициализации контроллера
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         label.setVisible(false);
         label.setManaged(false);
+        vBox.getStyleClass().add("h1");
+        label.getStyleClass().addAll("lbl", "lbl-primary");
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
         championshipService = SwimmingChampionshipsApplication.context.getBean("championshipServiceImpl",
                 ChampionshipServiceImpl.class);
-        CompletableFuture.runAsync(()->fillPage());
+        //запуск метода в отдельном потоке
+        CompletableFuture.runAsync(() -> fillPage());
+
     }
 
+    // метод заполнения страницы
     private void fillPage() {
         List<Championship> championships = championshipService.findAll();
         List<VBox> vBoxes = new ArrayList<>();
-        for (Championship ch : championships){
+        for (Championship ch : championships) {
             FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("championship-views/mini-championship-view.fxml"));
             try {
                 vBoxes.add(loader.load());
@@ -69,15 +76,13 @@ public class AllChampionshipsController implements Initializable {
                 throw new RuntimeException(e);
             }
         }
-        synchronized (vBox){
-            Platform.runLater(()->{
+        synchronized (vBox) {
+            Platform.runLater(() -> {
                 vBox.getChildren().remove(1);
                 vBox.getChildren().addAll(vBoxes);
                 label.setVisible(true);
                 label.setManaged(true);
             });
         }
-
-
     }
 }

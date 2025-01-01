@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+// репозиторий сущности request
 public interface RequestRepository extends JpaRepository<Request, Integer> {
-
+    // метод поиска записей по соревнованию и дистанции
     List<Request> findByChampionshipAndDisciplineOrderByTimeInt(Championship championship, Discipline discipline);
 }

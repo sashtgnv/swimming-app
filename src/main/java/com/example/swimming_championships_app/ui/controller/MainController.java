@@ -4,17 +4,15 @@ import com.example.swimming_championships_app.model.Organizer;
 import com.example.swimming_championships_app.ui.MainStage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+// класс-контроллер главного окна
+public class MainController {
     private Organizer currentUser;
 
     public void setCurrentUser(Organizer currentUser) {
@@ -40,11 +38,19 @@ public class MainController implements Initializable {
     @FXML
     private Button requestButton;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    private Button requestProtocolButton;
 
-    }
+    @FXML
+    private Button resultProtocolButton;
 
+    @FXML
+    private VBox vBoxx;
+
+    @FXML
+    private Label welcomeLabel;
+
+    //метод перехода на страницу календаря соревнований
     @FXML
     void champButtonAction() throws IOException {
         FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("championship-views/all-championships-view.fxml"));
@@ -53,12 +59,14 @@ public class MainController implements Initializable {
         controller.setParentController(this);
     }
 
+    //метод перехода на страницу списка судей
     @FXML
     void judgeButtonAction() throws IOException {
         FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("judges-view.fxml"));
         root.setCenter(loader.load());
     }
 
+    //метод перехода на страницу авторизации/страницы организатора
     @FXML
     void organizerButtonAction() throws IOException {
         FXMLLoader loader;
@@ -70,30 +78,30 @@ public class MainController implements Initializable {
         } else {
             loader = new FXMLLoader(MainStage.class.getResource("organizer-views/organizer-view.fxml"));
             root.setCenter(loader.load());
+            OrganizerController organizerController = loader.getController();
+            organizerController.setRoot(root);
         }
     }
 
+    //метод перехода на страницу создания новой заявки
     @FXML
     void requestButtonAction() throws IOException {
         FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("new-request-view.fxml"));
         root.setCenter(loader.load());
     }
 
+    //метод перехода на страницу протокола заявок
     @FXML
     void requestProtocolButtonAction() throws IOException {
         FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("request-protocol-view.fxml"));
         root.setCenter(loader.load());
     }
 
+    //метод перехода на страницу итогового протокола
     @FXML
     void resultProtocolButtonAction() throws IOException {
         FXMLLoader loader = new FXMLLoader(MainStage.class.getResource("result-protocol-view.fxml"));
         root.setCenter(loader.load());
-    }
-
-    @FXML
-    void statButtonAction() {
-
     }
 
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -9,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swimming_championships_app.ui.controller.ChampionshipController">
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swimming_championships_app.ui.controller.ChampionshipController">
    <content>
-      <VBox fx:id="vBox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="920.0">
+      <VBox fx:id="vBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="610.0" prefWidth="920.0" spacing="10.0" styleClass="center">
          <children>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="198.0" prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -22,9 +23,9 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="hBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="titleLabel" text="name">
+                  <Label fx:id="titleLabel" styleClass="title-label" text="name">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -33,49 +34,57 @@
             </HBox>
             <Label fx:id="dateLabel" text="дата" wrapText="true">
                <VBox.margin>
-                  <Insets left="100.0" />
+                  <Insets left="100.0" top="10.0" />
                </VBox.margin>
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label fx:id="adressLabel" layoutX="10.0" layoutY="110.0" text="адрес" wrapText="true">
                <VBox.margin>
-                  <Insets left="100.0" />
+                  <Insets left="100.0" top="10.0" />
                </VBox.margin>
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label fx:id="distancesLabel" layoutX="10.0" layoutY="110.0" text="список дистанций" wrapText="true">
                <VBox.margin>
-                  <Insets left="100.0" />
+                  <Insets left="100.0" top="10.0" />
                </VBox.margin>
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label fx:id="judgesLabel" layoutX="10.0" layoutY="128.0" text="список судей" wrapText="true">
                <VBox.margin>
-                  <Insets left="100.0" />
+                  <Insets left="100.0" top="10.0" />
                </VBox.margin>
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label fx:id="documentLabel" layoutX="10.0" layoutY="145.0" text="ссылка на положение" wrapText="true">
                <VBox.margin>
+                  <Insets left="100.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="hyperLink" onAction="#copyLink">
+               <VBox.margin>
                   <Insets left="100.0" />
                </VBox.margin>
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font>
+            </Hyperlink>
+            <Label fx:id="copiedLabel" layoutX="110.0" layoutY="421.0" onMouseClicked="#copyLink" text="скопировано в буфер обмена" visible="false" wrapText="true">
+               <VBox.margin>
+                  <Insets left="100.0" />
+               </VBox.margin>
             </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <ImageView fx:id="imgView" fitHeight="304.0" fitWidth="414.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </HBox>
          </children>
       </VBox>
    </content>

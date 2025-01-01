@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//реализация интерфейса organizerService
 @Service
 public class OrganizerServiceImpl implements OrganizerService {
     OrganizerRepository repository;

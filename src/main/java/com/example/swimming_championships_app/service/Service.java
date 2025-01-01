@@ -1,13 +1,15 @@
 package com.example.swimming_championships_app.service;
 
-import com.example.swimming_championships_app.model.Sportsman;
-
 import java.util.List;
 
-public interface Service <T> {
+//интерфейс сервиса для репозитория
+public interface Service<T> {
+    // метод поиска всех записей в таблице
     List<T> findAll();
 
+    // метод удаления выбранной записи
     void delete(T t);
 
+    // метод сохранения или обновления выбранной записи
     T save(T t);
 }

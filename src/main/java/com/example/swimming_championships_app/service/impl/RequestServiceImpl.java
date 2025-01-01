@@ -5,11 +5,11 @@ import com.example.swimming_championships_app.model.Discipline;
 import com.example.swimming_championships_app.model.Request;
 import com.example.swimming_championships_app.repository.RequestRepository;
 import com.example.swimming_championships_app.service.RequestService;
-import com.example.swimming_championships_app.util.Time;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//реализация интерфейса requestService
 @Service
 public class RequestServiceImpl implements RequestService {
     RequestRepository repository;

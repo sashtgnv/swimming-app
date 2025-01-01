@@ -8,9 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
+//класс-контроллер элемента списка на странице календаря соревнований
 public class MiniChampionshipController {
 
     private Championship championship;
@@ -34,7 +36,10 @@ public class MiniChampionshipController {
 
     @FXML
     private Label nameLabel;
+    @FXML
+    private VBox vBox;
 
+    //геттеры
     public Label getDescLabel() {
         return descLabel;
     }
@@ -47,6 +52,7 @@ public class MiniChampionshipController {
         return nameLabel;
     }
 
+    //метод перехода на страницу соревнования
     @FXML
     void onDoubleClick(MouseEvent event) throws IOException {
         if (event.getClickCount() > 1) {

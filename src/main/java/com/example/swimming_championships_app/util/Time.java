@@ -1,5 +1,6 @@
 package com.example.swimming_championships_app.util;
 
+// вспомогательный класс времени
 public class Time {
     private int all;
     private int milisec;
@@ -31,6 +32,7 @@ public class Time {
         this.all = min * 60 * 1000 + sec * 1000 + milisec;
     }
 
+    // возвращает количиство миллисекунд объекта класса
     public int getAll() {
         return all;
     }

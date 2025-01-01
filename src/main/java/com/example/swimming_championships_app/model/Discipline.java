@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
+//сущность "discipline"
 @Entity
 public class Discipline implements Serializable {
     @Id
@@ -59,6 +61,19 @@ public class Discipline implements Serializable {
 
     public void setChampionships(List<Championship> championships) {
         this.championships = championships;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Discipline that = (Discipline) o;
+        return Objects.equals(id, that.id) && Objects.equals(style, that.style) && Objects.equals(distance, that.distance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, style, distance);
     }
 
     @Override

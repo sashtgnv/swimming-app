@@ -4,7 +4,9 @@ import com.example.swimming_championships_app.util.Time;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Objects;
 
+//сущность "request"
 @Entity
 public class Request implements Serializable {
     @Id
@@ -14,10 +16,10 @@ public class Request implements Serializable {
     @JoinColumn(name = "id_d")
     private Discipline discipline;
     @ManyToOne
-    @JoinColumn(name  = "id_s")
+    @JoinColumn(name = "id_s")
     private Sportsman sportsman;
     @ManyToOne
-    @JoinColumn(name  = "id_ch")
+    @JoinColumn(name = "id_ch")
     private Championship championship;
     @Column(name = "request_time")
     private Integer timeInt;
@@ -87,17 +89,32 @@ public class Request implements Serializable {
         this.timeInt = timeInt;
         this.requestTime = new Time(timeInt);
     }
+
     public Time getRequestTime() {
         return requestTime;
     }
+
     public void setRequestTime(Time requestTime) {
         this.requestTime = requestTime;
         this.timeInt = requestTime.getAll();
     }
 
     @PostLoad
-    private void load(){
+    private void load() {
         this.requestTime = new Time(this.timeInt);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Request request = (Request) o;
+        return Objects.equals(id, request.id) && Objects.equals(discipline, request.discipline) && Objects.equals(sportsman, request.sportsman) && Objects.equals(championship, request.championship) && Objects.equals(timeInt, request.timeInt) && Objects.equals(result, request.result);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, discipline, sportsman, championship, timeInt, result);
     }
 
     @Override

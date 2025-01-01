@@ -5,49 +5,58 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swimming_championships_app.ui.controller.LoginController">
-    <Label text="Авторизация">
-        <font>
-            <Font size="48.0" />
-        </font>
-    </Label>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="929.0" styleClass="center" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swimming_championships_app.ui.controller.LoginController">
+   <HBox fx:id="hBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <children>
+          <Label fx:id="welcomeLabel" styleClass="title-label" text="Авторизация">
+              <font>
+                  <Font size="24.0" />
+              </font>
+          </Label>
+      </children>
+   </HBox>
     <Label text="login">
         <font>
-            <Font size="20.0" />
+            <Font size="18.0" />
         </font>
     </Label>
     <TextField fx:id="loginField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="31.0" prefWidth="182.0">
         <font>
-            <Font size="15.0" />
+            <Font size="14.0" />
         </font>
     </TextField>
     <Label text="password">
         <font>
-            <Font size="20.0" />
+            <Font size="18.0" />
         </font>
     </Label>
     <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="31.0" prefWidth="182.0">
         <font>
-            <Font size="15.0" />
+            <Font size="14.0" />
         </font>
     </PasswordField>
-   <Label fx:id="wrongAuthLabel" text="Неверный логин или пароль" textFill="RED">
+   <HBox fx:id="hBox2" alignment="CENTER">
+      <children>
+         <Label fx:id="wrongAuthLabel" text="Неверный логин или пароль" textFill="RED">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+      </children>
       <VBox.margin>
-         <Insets top="10.0" />
+         <Insets bottom="5.0" top="5.0" />
       </VBox.margin>
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Label>
+   </HBox>
     <Button fx:id="authorizeButton" mnemonicParsing="false" onAction="#authorize" text="Войти">
         <VBox.margin>
             <Insets top="10.0" />
         </VBox.margin>
         <font>
-            <Font size="20.0" />
+            <Font size="18.0" />
         </font>
     </Button>
 </VBox>

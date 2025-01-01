@@ -5,9 +5,10 @@ import com.example.swimming_championships_app.repository.ChampionshipRepository;
 import com.example.swimming_championships_app.service.ChampionshipService;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
+//реализация интерфейса championshipService
 @Service
 public class ChampionshipServiceImpl implements ChampionshipService {
     ChampionshipRepository repository;
@@ -32,7 +33,11 @@ public class ChampionshipServiceImpl implements ChampionshipService {
     }
 
     @Override
-    public List<Championship> findEarlyThan(Date date) {
-        return repository.findByDateLessThanEqualOrderByDateDesc(date);
+    public List<Championship> findEarlyThan(LocalDate date) {
+        return repository.findByDateLessThanEqualOrderByDateAsc(date);
+    }
+    @Override
+    public List<Championship> findByDateGreaterThanEqualOrderByDateAsc(LocalDate date) {
+        return repository.findByDateGreaterThanEqualOrderByDateAsc(date);
     }
 }

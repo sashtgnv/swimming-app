@@ -3,16 +3,17 @@ package com.example.swimming_championships_app.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
+//сущность "championship"
 @Entity
 public class Championship implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private Date date;
+    private LocalDate date;
     @Column(name = "document_url")
     private String document;
     private String adress;
@@ -29,7 +30,7 @@ public class Championship implements Serializable {
     public Championship() {
     }
 
-    public Championship(Integer id, String name, Date date, String document, String adress, String photo, List<Judge> judges, List<Discipline> disciplines) {
+    public Championship(Integer id, String name, LocalDate date, String document, String adress, String photo, List<Judge> judges, List<Discipline> disciplines) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -56,11 +57,11 @@ public class Championship implements Serializable {
         this.name = name;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

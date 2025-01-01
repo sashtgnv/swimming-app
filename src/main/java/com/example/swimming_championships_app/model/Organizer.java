@@ -2,6 +2,7 @@ package com.example.swimming_championships_app.model;
 
 import jakarta.persistence.*;
 
+//сущность "organizer"
 @Entity
 public class Organizer {
     @Id

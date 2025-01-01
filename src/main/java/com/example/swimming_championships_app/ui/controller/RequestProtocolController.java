@@ -17,10 +17,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.net.URL;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
+//класс-контроллер страницы заявочных протоколов
 public class RequestProtocolController implements Initializable {
 
     private RequestServiceImpl requestService;
@@ -32,56 +33,62 @@ public class RequestProtocolController implements Initializable {
     @FXML
     private ComboBox<Championship> comboBox;
 
+    //    метод инициализации контроллера
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         requestService = SwimmingChampionshipsApplication.context.
                 getBean("requestServiceImpl", RequestServiceImpl.class);
         championshipService = SwimmingChampionshipsApplication.context.
                 getBean("championshipServiceImpl", ChampionshipServiceImpl.class);
-        List<Championship> championships = championshipService.findEarlyThan(new Date());
+        List<Championship> championships = championshipService.findEarlyThan(LocalDate.now());
         comboBox.getItems().addAll(championships);
+
     }
 
+    // метод заполнения протокола
     @FXML
     void showProtocol() {
-        Championship championship = comboBox.getSelectionModel().getSelectedItem();
-        List<Discipline> disciplines = championship.getDisciplines();
-        for (Discipline discipline : disciplines) {
-            List<Request> requests = requestService.findByChampionshipAndDiscipline(championship, discipline);
-            // Заголовок дистанции
-            Label disciplineLabel = new Label(discipline.getDistance() + "м " + discipline.getStyle());
-            disciplineLabel.setFont(Font.font("Monospaced", FontWeight.BOLD,20));
-            vBox.getChildren().add(disciplineLabel);
+        vBox.getChildren().clear();
+        if (comboBox.getSelectionModel().getSelectedItem() != null) {
+            Championship championship = comboBox.getSelectionModel().getSelectedItem();
+            List<Discipline> disciplines = championship.getDisciplines();
+            for (Discipline discipline : disciplines) {
+                List<Request> requests = requestService.findByChampionshipAndDiscipline(championship, discipline);
+                // Заголовок дистанции
+                Label disciplineLabel = new Label(discipline.getDistance() + "м " + discipline.getStyle());
+                disciplineLabel.setFont(Font.font("Monospaced", FontWeight.BOLD, 20));
+                vBox.getChildren().add(disciplineLabel);
 
-            for (int i = 0; i < requests.size(); i++) {
+                for (int i = 0; i < requests.size(); i++) {
 
-                if (i % 5 == 0) { // номер заплыва
-                    Label swim = new Label("Заплыв №" +  (i / 5 + 1));
-                    swim.setFont(Font.font("Monospaced",18));
-                    vBox.getChildren().addAll(new Label("-".repeat(150)),swim);
+                    if (i % 5 == 0) { // номер заплыва
+                        Label swim = new Label("Заплыв №" + (i / 5 + 1));
+                        swim.setFont(Font.font("Monospaced", 18));
+                        vBox.getChildren().addAll(new Label("-".repeat(150)), swim);
+                    }
+
+                    Sportsman sportsman = requests.get(i).getSportsman();
+                    // строка из таблицы заплыва
+                    StringBuilder s = new StringBuilder();
+                    s.append((i % 5 + 1)).
+                            append(" | ").
+                            append(sportsman.getSurname()).
+                            append(' ').
+                            append(sportsman.getName()).
+                            append(' ').
+                            append(sportsman.getPatronymic()).
+                            append(" ".repeat(40 - s.length())).
+                            append(" | ").
+                            append(sportsman.getGrade()).
+                            append(" ".repeat(6 - ((sportsman.getGrade() == null) ? 4 : sportsman.getGrade().length()))).
+                            append(" | ").append(requests.get(i).getRequestTime());
+
+                    Label sl = new Label(s.toString());
+                    sl.setMinSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                    sl.setFont(Font.font("Monospaced", 18));
+
+                    vBox.getChildren().add(sl);
                 }
-
-                Sportsman sportsman = requests.get(i).getSportsman();
-                // строка из таблицы заплыва
-                StringBuilder s = new StringBuilder();
-                s.append((i % 5 + 1)).
-                        append(" | ").
-                        append(sportsman.getSurname()).
-                        append(' ').
-                        append(sportsman.getName()).
-                        append(' ').
-                        append(sportsman.getPatronymic()).
-                        append(" ".repeat(40 - s.length())).
-                        append(" | ").
-                        append(sportsman.getGrade()).
-                        append(" ".repeat(6 - sportsman.getGrade().length())).
-                        append(" | ").append(requests.get(i).getRequestTime());
-
-                Label sl = new Label(s.toString());
-                sl.setMinSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
-                sl.setFont(Font.font("Monospaced",18));
-
-                vBox.getChildren().add(sl);
             }
         }
     }
